@@ -16,10 +16,10 @@ class ArticleCubit extends Cubit<ArticleStates>{
     emit(ArticleLoadingState());
     Either<Exception, NewsResponse> ? response= await getIt<GetArticleDataUseCase>()(NoParams());
 
-    emit (response!.fold(
+   response!.fold(
           (failure)=>ArticleErrorState(message: _msgFailureToMsg(failure)),
           (articleResponse)=>ArticleSuccessState(article: articleResponse),
-    ));
+    );
   }
   String _msgFailureToMsg(Exception failure){
     switch (failure.runtimeType){

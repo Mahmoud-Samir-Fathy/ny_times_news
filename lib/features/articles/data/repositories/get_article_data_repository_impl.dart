@@ -6,12 +6,8 @@ import 'package:ny_times/features/articles/domain/repositories/get_article_data_
 import 'package:ny_times/injection_container.dart';
 
 class GetArticleDataRepositoryImpl implements GetArticleDataRepository {
-
-  GetArticleDataRepositoryImpl();
-
-
   @override
-  Future<Either<Exception, NewsResponse>> getArticleData() async{
+  Future<Either<Exception, NewsResponse>> getArticleData() async {
     try {
       final randomRemoteArticle =
           await getIt<ArticleRemoteDataSource>().getRemoteArticleData();
