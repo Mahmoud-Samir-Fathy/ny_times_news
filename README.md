@@ -1,6 +1,6 @@
 # ny_times
 
-A new Flutter project.
+NY Times.
 
 ## Getting Started
 
@@ -32,9 +32,9 @@ ensuring a seamless reading experience.
 - Flutter SDK(Android SDK version 34.0.0)
 - Android Studio
 - An Android device
-- A valid API key for the NY Times API(https://developer.nytimes.com/get-started)
+- A valid API key for the NY Times API((https://developer.nytimes.com/get-started) + Your Api key)
   Clone the Repository
-- git clone https://github.com/your-username/ny-times-news-app.git
+- git clone https://github.com/Mahmoud-Samir-Fathy/ny_times_news.git
 - cd ny-times-news-app
 - NY_TIMES_API_KEY=your-ny-times-api-key
 - flutter pub get
@@ -64,7 +64,7 @@ ensuring a seamless reading experience.
 - [Clone the Repository](#clone-the-repository)
 - Open your terminal or command prompt.
 - Use the following command to clone the NY Times News App repository:
-  git clone https://github.com/your-username/ny-times-news-app.git
+  git clone https://github.com/Mahmoud-Samir-Fathy/ny_times_news.git
 
 - Navigate to the cloned repository directory by running:
   cd ny-times-news-app
@@ -151,7 +151,7 @@ Add tests or documentation if applicable.
 
 - Stay Updated
 Regularly sync your fork with the main repository to avoid conflicts:
-* git remote add upstream https://github.com/your-username/NY-Times-News-App.git
+* git remote add upstream https://github.com/Mahmoud-Samir-Fathy/ny_times_news.git
 * git fetch upstream
 * git merge upstream/main
 
