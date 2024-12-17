@@ -17,8 +17,8 @@ class ArticleCubit extends Cubit<ArticleStates>{
     Either<Exception, NewsResponse> ? response= await getIt<GetArticleDataUseCase>()(NoParams());
 
    response!.fold(
-          (failure)=>ArticleErrorState(message: _msgFailureToMsg(failure)),
-          (articleResponse)=>ArticleSuccessState(article: articleResponse),
+          (failure)=>emit(ArticleErrorState(message: _msgFailureToMsg(failure))),
+          (articleResponse)=>emit(ArticleSuccessState(article: articleResponse)),
     );
   }
   String _msgFailureToMsg(Exception failure){
