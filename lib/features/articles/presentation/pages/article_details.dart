@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ny_times/core/utils/app_colors.dart';
 import 'package:ny_times/core/utils/app_strings.dart';
-import 'package:ny_times/features/articles/data/models/article_model.dart';
+import 'package:ny_times/features/articles/domain/entities/news_response_entity.dart';
 
 class ArticleDetails extends StatelessWidget {
-  final NewsArticle article;
+  final NewsArticleEntity article;
 
   const ArticleDetails({super.key, required this.article});
 

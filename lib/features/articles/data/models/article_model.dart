@@ -1,13 +1,15 @@
-class NewsResponse {
+import 'package:ny_times/features/articles/domain/entities/news_response_entity.dart';
+
+class NewsResponse extends NewsResponseEntity {
   final String status;
   final int numResults;
   final List<NewsArticle> results;
 
-  NewsResponse({
+  const NewsResponse({
     required this.status,
     required this.numResults,
     required this.results,
-  });
+  }) : super(status: status, numResults: numResults, results: results);
 
   factory NewsResponse.fromJson(Map<String, dynamic> json) {
     return NewsResponse(
@@ -20,7 +22,7 @@ class NewsResponse {
   }
 }
 
-class NewsArticle {
+class NewsArticle extends NewsArticleEntity {
   final String uri;
   final String url;
   final int id;
@@ -42,7 +44,7 @@ class NewsArticle {
   final List<String> geoFacet;
   final List<Media> media;
 
-  NewsArticle({
+  const NewsArticle({
     required this.uri,
     required this.url,
     required this.id,
@@ -63,7 +65,27 @@ class NewsArticle {
     required this.perFacet,
     required this.geoFacet,
     required this.media,
-  });
+  }) : super(
+            uri: uri,
+            url: url,
+            id: id,
+            source: source,
+            publishedDate: publishedDate,
+            updated: updated,
+            section: section,
+            subsection: subsection,
+            nytdsection: nytdsection,
+            adxKeywords: adxKeywords,
+            column: column,
+            byline: byline,
+            type: type,
+            title: title,
+            abstractText: abstractText,
+            desFacet: desFacet,
+            orgFacet: orgFacet,
+            perFacet: perFacet,
+            geoFacet: geoFacet,
+            media: media);
 
   factory NewsArticle.fromJson(Map<String, dynamic> json) {
     return NewsArticle(
@@ -86,27 +108,31 @@ class NewsArticle {
       orgFacet: List<String>.from(json['org_facet'] ?? []),
       perFacet: List<String>.from(json['per_facet'] ?? []),
       geoFacet: List<String>.from(json['geo_facet'] ?? []),
-      media: (json['media'] as List)
-          .map((item) => Media.fromJson(item))
-          .toList(),
+      media:
+          (json['media'] as List).map((item) => Media.fromJson(item)).toList(),
     );
   }
 }
 
-class Media {
+class Media extends MediaEntity {
   final String type;
   final String subtype;
   final String caption;
   final String copyright;
   final List<MediaMetadata> metadata;
 
-  Media({
+  const Media({
     required this.type,
     required this.subtype,
     required this.caption,
     required this.copyright,
     required this.metadata,
-  });
+  }) : super(
+            type: type,
+            subtype: subtype,
+            caption: caption,
+            copyright: copyright,
+            metadata: metadata);
 
   factory Media.fromJson(Map<String, dynamic> json) {
     return Media(
@@ -121,18 +147,18 @@ class Media {
   }
 }
 
-class MediaMetadata {
+class MediaMetadata extends MediaMetadataEntity {
   final String url;
   final String format;
   final int height;
   final int width;
 
-  MediaMetadata({
+  const MediaMetadata({
     required this.url,
     required this.format,
     required this.height,
     required this.width,
-  });
+  }) : super(url: '', format: '', height: 0, width: 0);
 
   factory MediaMetadata.fromJson(Map<String, dynamic> json) {
     return MediaMetadata(

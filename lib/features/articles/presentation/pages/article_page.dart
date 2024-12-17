@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ny_times/core/utils/app_colors.dart';
 import 'package:ny_times/core/utils/app_strings.dart';
-import 'package:ny_times/features/articles/data/models/article_model.dart';
+import 'package:ny_times/features/articles/domain/entities/news_response_entity.dart';
 import 'package:ny_times/features/articles/presentation/manager/cubit.dart';
 import 'package:ny_times/features/articles/presentation/manager/states.dart';
 import 'package:ny_times/features/articles/presentation/pages/article_details.dart';
@@ -67,7 +67,7 @@ class ArticlePage extends StatelessWidget {
   }
 }
 
-Widget buildArticleItem(BuildContext context, NewsArticle article) {
+Widget buildArticleItem(BuildContext context, NewsArticleEntity article) {
   return GestureDetector(
     onTap: () {
       Navigator.push(

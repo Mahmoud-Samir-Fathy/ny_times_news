@@ -1,10 +1,10 @@
-import 'package:ny_times/features/articles/data/models/article_model.dart';
+import 'package:ny_times/features/articles/domain/entities/news_response_entity.dart';
 
 abstract class ArticleStates{}
 class ArticleInitialState extends ArticleStates{}
 class ArticleLoadingState extends ArticleStates{}
 class ArticleSuccessState extends ArticleStates{
-  final NewsResponse article;
+  final NewsResponseEntity article;
 
   ArticleSuccessState({required this.article});
 }

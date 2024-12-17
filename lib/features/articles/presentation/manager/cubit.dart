@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ny_times/core/error/exceptions.dart';
 import 'package:ny_times/core/usecases/usecase.dart';
 import 'package:ny_times/core/utils/app_strings.dart';
-import 'package:ny_times/features/articles/data/models/article_model.dart';
+import 'package:ny_times/features/articles/domain/entities/news_response_entity.dart';
 import 'package:ny_times/features/articles/domain/use_cases/get_article_data_use_case.dart';
 import 'package:ny_times/features/articles/presentation/manager/states.dart';
 import 'package:ny_times/injection_container.dart';
@@ -14,7 +14,7 @@ class ArticleCubit extends Cubit<ArticleStates>{
 
   Future<void> gerArticleData() async{
     emit(ArticleLoadingState());
-    Either<Exception, NewsResponse> ? response= await getIt<GetArticleDataUseCase>()(NoParams());
+    Either<Exception, NewsResponseEntity> ? response= await getIt<GetArticleDataUseCase>()(NoParams());
 
    response!.fold(
           (failure)=>emit(ArticleErrorState(message: _msgFailureToMsg(failure))),
