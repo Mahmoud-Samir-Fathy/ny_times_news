@@ -68,6 +68,12 @@ class ArticlePage extends StatelessWidget {
 }
 
 Widget buildArticleItem(BuildContext context, NewsArticleEntity article) {
+  final mediaUrl = (article.media.isNotEmpty &&
+      article.media[0].metadata.isNotEmpty &&
+      article.media[0].metadata.length > 1)
+      ? article.media[0].metadata[1].url
+      : null;
+
   return GestureDetector(
     onTap: () {
       Navigator.push(
@@ -90,12 +96,12 @@ Widget buildArticleItem(BuildContext context, NewsArticleEntity article) {
               backgroundColor: Colors.white,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(40.r),
-                child: Image.network(
-                article.media[0].metadata[1].url,
+                child: mediaUrl != null ? Image.network(
+                  mediaUrl,
                   fit: BoxFit.cover,
                   height: 80.h,
                   width: 80.w,
-                ),
+                ) : const Icon(Icons.image_not_supported, size: 40),
               ),
             ),
           ),
